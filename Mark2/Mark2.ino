@@ -3,6 +3,8 @@
 
 //  MATERIALES 
 // LEDS 
+int led = 10 ; 
+int led2 = 11 ; 
 // sensor ultrasonico 
 int pinTri = 9 ; 
 int pinEcho = 8 ; 
@@ -18,26 +20,38 @@ int pinM22 = 4 ;
 // SENSORES INFRAROJOS 
 
 void setup() {
-  // put your setup code here, to run once:
   pinMode(pinM11,OUTPUT); 
   pinMode(pinM12,OUTPUT); 
   pinMode(pinM21,OUTPUT); 
   pinMode(pinM22,OUTPUT); 
   pinMode(pinTri,OUTPUT); 
   pinMode(pinEcho,INPUT); 
+  pinMode(led,OUTPUT); 
+  pinMode(led2,OUTPUT); 
   Serial.begin(9600); 
+  digitalWrite(led,HIGH); 
+  delay(500); 
+  digitalWrite(led,LOW); 
+  delay(1000);
+  digitalWrite(led2,HIGH);
+  delay(1000);  
+  digitalWrite(led2,LOW); 
+  delay(500); 
+  digitalWrite(led,HIGH); 
+  delay(500);
+  digitalWrite(led,LOW); 
+  delay(500); 
+  digitalWrite(led,HIGH); 
+  digitalWrite(led2,HIGH); 
+  delay(500); 
+  digitalWrite(led,LOW); 
+  digitalWrite(led2,LOW); 
+  delay(2000);
 
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  /*
-  digitalWrite(pinM11,HIGH); 
-  digitalWrite(pinM12,LOW); 
-  digitalWrite(pinM21,HIGH); 
-  digitalWrite(pinM22,LOW); 
-  */
   digitalWrite(pinTri,OUTPUT); 
   delayMicroseconds(25); 
   recibe = pulseIn(pinEcho,HIGH); 
