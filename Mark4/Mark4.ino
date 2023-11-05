@@ -1,5 +1,5 @@
 // ROBOT SUMO 
-// MARK 3 
+// MARK 4
 //  MATERIALES 
 // LEDS 
 int led = 2 ; 
@@ -23,7 +23,13 @@ int pinMh22 = 11 ;
 int pinMh23 = 12 ; 
 int pinMh24 = 13 ; 
 // SENSORES INFRAROJOS 
+int sensor1 = A0; 
+int sensor2 = A1; 
+int recibe2 ; 
+int recibe3 ; 
 void setup() {
+  pinMode(sensor1,INPUT); 
+  pinMode(sensor2,OUTPUT); 
   pinMode(pinM11,OUTPUT); 
   pinMode(pinM12,OUTPUT); 
   pinMode(pinM21,OUTPUT); 
@@ -60,6 +66,9 @@ void setup() {
 }
 
 void loop() {
+  recibe2 = digitalRead(sensor1); 
+  recibe3 = digitalRead(sensor2); 
+  if (recibe2 == HIGH && recibe3 == HIGH){
   digitalWrite(led,HIGH); 
   digitalWrite(pinTri,OUTPUT); 
   delayMicroseconds(25); 
@@ -90,10 +99,23 @@ void loop() {
   digitalWrite(pinMh22,LOW); 
   digitalWrite(pinMh23,HIGH); 
   digitalWrite(pinMh24,LOW);
-  
+    }
   }
-  
+  else {
+    // motor 1 y2 del modulo h1 encendido 
+    // reversa 
+    digitalWrite(led2,HIGH); 
+    digitalWrite(pinM11,LOW); 
+    digitalWrite(pinM12,HIGH); 
+    digitalWrite(pinM21,LOW); 
+    digitalWrite(pinM22,HIGH);
+  // motores 3 y 4 del modulo h2 encendidos 
+  // reversa 
+    digitalWrite(pinMh21,LOW); 
+    digitalWrite(pinMh22,HIGH); 
+    digitalWrite(pinMh23,LOW); 
+    digitalWrite(pinMh24,HIGH);
 
-
+  }
 }
 
