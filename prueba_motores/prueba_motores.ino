@@ -24,8 +24,8 @@ void loop() {
   digitalWrite(motor1,LOW);
   digitalWrite(motor2,HIGH);
 
-  digitalWrite(motor3,LOW);
-  digitalWrite(motor4,HIGH);
+  digitalWrite(motor3,HIGH);
+  digitalWrite(motor4,LOW);
 
   digitalWrite(motor5,LOW);
   digitalWrite(motor6,HIGH);
