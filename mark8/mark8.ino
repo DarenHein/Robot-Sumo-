@@ -6,7 +6,7 @@ const int pinmotor3 = 4;
 const int pinmotor4 = 5;
 const int trigPin = A4;
 const int echoPin = A5;
-const buzzer = 10 ; 
+const int buzzer = 10 ; 
 long duration;
 int distance;
 void setup() {
