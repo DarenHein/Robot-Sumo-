@@ -1,4 +1,4 @@
-// robot sumo mark 9 
+// robot sumo mark 10
 // version arduino nano 
 // tuve que quitar los leds de forma provisional 
 int motor1 = 2 ; 
