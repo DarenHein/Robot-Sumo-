@@ -36,7 +36,7 @@ void loop() {
   delay(25); 
   digitalWrite(pinTri,LOW); 
   
-  if (recibe >= 800){
+  if (recibe < 1200){
     // put your main code here, to run repeatedly:
   digitalWrite(motor1,HIGH); 
   digitalWrite(motor2,LOW); 
@@ -44,6 +44,7 @@ void loop() {
   digitalWrite(motor4,LOW); 
   }
   else {
+  //delay(500); 
   digitalWrite(motor1,LOW); 
   digitalWrite(motor2,LOW); 
   digitalWrite(motor3,LOW); 

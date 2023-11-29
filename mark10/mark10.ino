@@ -43,7 +43,6 @@ void loop() {
   digitalWrite(pinTri,LOW); 
   
   if (recibe >= 800){
-    // put your main code here, to run repeatedly:
   digitalWrite(motor1,HIGH); 
   digitalWrite(motor2,LOW); 
   digitalWrite(motor3,HIGH); 
