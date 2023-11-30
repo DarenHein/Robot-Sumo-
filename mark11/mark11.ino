@@ -14,16 +14,7 @@ void setup() {
   pinMode(motor3, OUTPUT);
   pinMode(motor4, OUTPUT);
   Serial.begin(9600);
-  digitalWrite(motor1, HIGH);
-  digitalWrite(motor2, LOW);
-  digitalWrite(motor3, LOW);
-  digitalWrite(motor4, HIGH);
-  delay(1000);
-  digitalWrite(motor1, LOW);
-  digitalWrite(motor2, HIGH);
-  digitalWrite(motor3, HIGH);
-  digitalWrite(motor4, LOW);
-  delay(1000); 
+   
 }
 
 void loop() {
@@ -34,17 +25,41 @@ void loop() {
   delay(10);
   digitalWrite(pinTri,LOW); 
   Serial.println(recibe); 
-  if (recibe >= 700){
+  if (recibe <= 3000){ // ataca 
     digitalWrite(motor1,HIGH); 
     digitalWrite(motor2,LOW); 
     digitalWrite(motor3,HIGH); 
     digitalWrite(motor4,LOW); 
   }
-  else {
-    digitalWrite(motor1,LOW); 
-    digitalWrite(motor2,LOW); 
-    digitalWrite(motor3,LOW); 
-    digitalWrite(motor4,LOW); 
+  else if (recibe > 3000){ // psea que no hay nadie en la arena y se detiene y busca 
+    // Girar hacia la derecha para buscar
+  digitalWrite(motor1, HIGH);
+  digitalWrite(motor2, LOW);
+  digitalWrite(motor3, LOW);
+  digitalWrite(motor4, HIGH);
+  delay(1000); // Tiempo suficiente para que el robot gire
+  
+  // Detener el robot
+  digitalWrite(motor1, LOW);
+  digitalWrite(motor2, LOW);
+  digitalWrite(motor3, LOW);
+  digitalWrite(motor4, LOW);
+  delay(500); // Pequeña pausa antes de girar hacia la izquierda
+  
+  // Girar hacia la izquierda para buscar
+  digitalWrite(motor1, LOW);
+  digitalWrite(motor2, HIGH);
+  digitalWrite(motor3, HIGH);
+  digitalWrite(motor4, LOW);
+  delay(1000); // Tiempo suficiente para que el robot gire
+  
+  // Detener el robot
+  digitalWrite(motor1, LOW);
+  digitalWrite(motor2, LOW);
+  digitalWrite(motor3, LOW);
+  digitalWrite(motor4, LOW);
+  delay(25);  
+    
   }
 }
 void buscar(){
